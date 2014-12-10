@@ -1,0 +1,484 @@
+{
+  "description": "Example Project",
+  "type": "project",
+  "homepage": "http://example.com",
+  "license": "proprietary",
+  "support": {
+    "email": "example@example.com",
+    "issues": "http://example.com/",
+    "forum": "http://example.com/",
+    "wiki": "http://example.com/",
+    "source": "http://example.com/"
+  },
+  "keywords" : [
+    "drupal"
+  ],
+  "minimum-stability": "RC",
+  "authors": [
+    {
+      "name": "Example Name",
+      "email": "example@example.com",
+      "role": "Example Role"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "composer/installers": "~1.0",
+    "azt3k/non-destructive-archive-installer" : "dev-master",
+    "netresearch/composer-patches-plugin": "~1.0",
+    "patches/drupal-patches": "*",
+    "drupal/drupal": "7.34",
+    "drupal/admin_menu": "7.3.0-rc4",
+    "drupal/advagg": "7.2.7",
+    "drupal/ctools": "7.1.4",
+    "drupal/diff": "7.3.2",
+    "drupal/entity": "7.1.5",
+    "drupal/features": "7.2.2",
+    "drupal/google_analytics": "7.2.0",
+    "drupal/pathauto": "7.1.2",
+    "drupal/registry_rebuild" : "7.2.2",
+    "drupal/strongarm": "7.2.0",
+    "drupal/uuid": "7.1.0-alpha5",
+    "drupal/uuid_features": "7.1.0-alpha4"
+  },
+  "require-dev": {
+    "drupal/backup_migrate": "7.3.0",
+    "drupal/coffee": "7.2.2",
+    "drupal/devel": "7.1.5",
+    "drupal/devel_themer": "7.x-1.x-dev",
+    "drupal/environment_indicator": "7.2.5",
+    "drupal/filter_perms": "7.1.0",
+    "drupal/masquerade": "7.1.0-rc7",
+    "drupal/module_filter": "7.2.0-alpha2",
+    "drupal/search_krumo": "7.1.5",
+    "drupal/security_review": "7.1.2",
+    "drupal/simplehtmldom": "7.2.1",
+    "drupal/coder": "8.2.0-beta1",
+    "drupal/site_audit": "7.1.12",
+    "drupal/drupalgeddon": "7.x-1.x-dev",
+    "drupal/drupalstrict": "@dev",
+    "drupal/drupalpractice": "8.1.0-beta1",
+    "pheromone/phpcs-security-audit": "dev-master",
+    "halleck45/php-metrics": "0.0.6",
+    "lucasdemarchi/codespell": "dev-master",
+    "mayflower/php-codebrowser": "~1.1",
+    "pdepend/pdepend" : "~2.0",
+    "phpmd/phpmd" : "~2.1",
+    "phpunit/phpunit": "~4.3",
+    "sebastian/phpcpd": "~2.0",
+    "sebastian/phpdcd": "~1.0"
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/drupal",
+        "version": "7.34",
+        "type": "non-destructive-archive-installer",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/drupal-7.34.zip",
+          "type": "zip"
+        },
+        "require": {
+          "azt3k/non-destructive-archive-installer" : "*"
+        },
+        "extra": {
+          "target-dir": "build",
+          "omit-first-directory": "true",
+          "always-install": "false"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "patches/drupal-patches",
+        "version": "1.0.0",
+        "type": "patches",
+        "require": {
+          "netresearch/composer-patches-plugin": "~1.0"
+        },
+        "extra": {
+          "patches": {
+          }
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/admin_menu",
+        "version": "7.3.0-rc4",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/admin_menu-7.x-3.0-rc4.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/advagg",
+        "version": "7.2.7",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/advagg-7.x-2.7.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/ctools",
+        "version": "7.1.4",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/ctools-7.x-1.4.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/diff",
+        "version": "7.3.2",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/diff-7.x-3.2.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/entity",
+        "version": "7.1.5",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/entity-7.x-1.5.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/features",
+        "version": "7.2.2",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/features-7.x-2.2.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/google_analytics",
+        "version": "7.2.0",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/google_analytics-7.x-2.0.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/pathauto",
+        "version": "7.1.2",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/pathauto-7.x-1.2.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/registry_rebuild",
+        "type": "drupal-drush",
+        "version": "7.2.2",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/registry_rebuild-7.x-2.2.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/strongarm",
+        "type": "drupal-module",
+        "version": "7.2.0",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/strongarm-7.x-2.0.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/uuid",
+        "version": "7.1.0-alpha5",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/uuid-7.x-1.0-alpha5.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/uuid_features",
+        "version": "7.1.0-alpha4",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/uuid_features-7.x-1.0-alpha4.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/backup_migrate",
+        "version": "7.3.0",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/backup_migrate-7.x-3.0.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/coffee",
+        "version": "7.2.2",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/coffee-7.x-2.2.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/devel",
+        "version": "7.1.5",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/devel-7.x-1.5.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/devel_themer",
+        "version": "7.x-1.x-dev",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/devel_themer-7.x-1.x-dev.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/environment_indicator",
+        "version": "7.2.5",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/environment_indicator-7.x-2.5.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/filter_perms",
+        "version": "7.1.0",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/filter_perms-7.x-1.0.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/masquerade",
+        "version": "7.1.0-rc7",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/masquerade-7.x-1.0-rc7.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/module_filter",
+        "version": "7.2.0-alpha2",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/module_filter-7.x-2.0-alpha2.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/search_krumo",
+        "version": "7.1.5",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/search_krumo-7.x-1.5.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/security_review",
+        "version": "7.1.2",
+        "type": "drupal-drush",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/security_review-7.x-1.2.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/simplehtmldom",
+        "version": "7.2.1",
+        "type": "drupal-module",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/simplehtmldom-7.x-2.1.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/drupalgeddon",
+        "version": "7.x-1.x-dev",
+        "type": "drupal-drush",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/drupalgeddon-7.x-1.x-dev.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/site_audit",
+        "version": "7.1.12",
+        "type": "drupal-drush",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/site_audit-7.x-1.12.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/drupalpractice",
+        "version": "8.1.0-beta1",
+        "type": "phpcs-plugin",
+        "dist": {
+          "url": "http://ftp.drupal.org/files/projects/drupalpractice-8.x-1.0-beta1.tar.gz",
+          "type": "tar"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "lucasdemarchi/codespell",
+        "version": "master",
+        "type": "phpcs-plugin",
+        "source": {
+          "url": "https://github.com/lucasdemarchi/codespell.git",
+          "type": "git",
+          "reference": "master"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "Pheromone/phpcs-security-audit",
+        "version": "master",
+        "type": "phpcs-plugin",
+        "source": {
+          "url": "https://github.com/Pheromone/phpcs-security-audit.git",
+          "type": "git",
+          "reference": "master"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/drupalstrict",
+        "version": "master",
+        "type": "phpcs-plugin",
+        "source": {
+          "url": "git@bitbucket.org:andrewholgate/drupalstrict.git",
+          "type": "git",
+          "reference": "master"
+        }
+      }
+    }
+  ],
+  "autoload": {
+    "classmap": ["code/features"]
+  },
+  "scripts": {
+    "pre-install-cmd": [
+      "mkdir build"
+    ],
+    "post-install-cmd": [
+      "cp -r copy/. build/",
+      "ln -s ../../../../code/features build/sites/all/modules/features",
+      "ln -s ../../../../code/themes build/sites/all/themes/custom"
+    ],
+    "post-update-cmd": [
+      "chmod 777 build/sites/default/settings.php && cp -r copy/. build/",
+      "[ -f '../../settings.local.php' ] && cp ../../settings.local.php build/sites/default/"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+      "build/sites/all/modules/contrib/{$name}/": ["type:drupal-module"],
+      "build/sites/all/themes/contrib/{$name}/": ["type:drupal-theme"],
+      "build/sites/all/libraries/{$name}/": ["type:drupal-library"],
+      "drush/modules/{$name}/": ["type:drupal-drush"]
+    }
+  }
+}
