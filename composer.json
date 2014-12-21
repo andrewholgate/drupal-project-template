@@ -34,8 +34,6 @@
     "drupal/diff": "7.3.2",
     "drupal/entity": "7.1.5",
     "drupal/features": "7.2.2",
-    "drupal/google_analytics": "7.2.0",
-    "drupal/pathauto": "7.1.2",
     "drupal/registry_rebuild" : "7.2.2",
     "drupal/strongarm": "7.2.0",
     "drupal/uuid": "7.1.0-alpha5",
@@ -172,30 +170,6 @@
         "type": "drupal-module",
         "dist": {
           "url": "http://ftp.drupal.org/files/projects/features-7.x-2.2.tar.gz",
-          "type": "tar"
-        }
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "drupal/google_analytics",
-        "version": "7.2.0",
-        "type": "drupal-module",
-        "dist": {
-          "url": "http://ftp.drupal.org/files/projects/google_analytics-7.x-2.0.tar.gz",
-          "type": "tar"
-        }
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "drupal/pathauto",
-        "version": "7.1.2",
-        "type": "drupal-module",
-        "dist": {
-          "url": "http://ftp.drupal.org/files/projects/pathauto-7.x-1.2.tar.gz",
           "type": "tar"
         }
       }
@@ -449,7 +423,7 @@
         "version": "master",
         "type": "phpcs-plugin",
         "source": {
-          "url": "git@bitbucket.org:andrewholgate/drupalstrict.git",
+          "url": "https://github.com/andrewholgate/drupalstrict.git",
           "type": "git",
           "reference": "master"
         }
