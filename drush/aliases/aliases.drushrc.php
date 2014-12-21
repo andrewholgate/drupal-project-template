@@ -10,7 +10,7 @@
  * everyone can just overwrite the different settings.
  */
 $aliases['example-develop'] = array (
-  'uri' => 'dev.example.wfp.org',
+  'uri' => 'dev.example.org',
   'root' => str_replace('drush/aliases', 'build', dirname(__FILE__)),
   'path-aliases' => array(
     '%dump' => '/tmp/drupal-dump.sql',
@@ -41,7 +41,7 @@ $aliases['example-develop'] = array (
 );
 
 $aliases['example-staging'] = array (
-  'uri' => 'staging.example.wfp.org',
+  'uri' => 'staging.example.org',
   'root' => '/var/www/example/current',
   'remote-host' => 'example-staging',
   'path-aliases' => array(
@@ -50,7 +50,7 @@ $aliases['example-staging'] = array (
 );
 
 $aliases['example-production'] = array (
-  'uri' => 'example.wfp.org',
+  'uri' => 'example.org',
   'root' => '/var/www/example/current',
   'remote-host' => 'example-production',
   'path-aliases' => array(

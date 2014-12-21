@@ -15,10 +15,10 @@ It has the following set of functionality:
 * Easy updating of code and database changes.
 * Workflow and developer helper scripts.
 * Separate environment settings (not stored in the code repository)
+* Code documentation using DoxyGen and Sphinx.
 
 ### Roadmap
 
-* Automated code document generation.
 * PHPUnit testing.
 * Behat BDD testing.
 
@@ -52,7 +52,7 @@ Rename *project_name* to the name of the project.
 
 ```
 # Fetch only the latest commit for the Drupal 7 Project Template.
-git clone git@bitbucket.org:andrewholgate/wfp_drupal_template.git v0.1-dev
+git clone https://github.com/andrewholgate/drupal-project-template.git v0.1-dev
 # Use Composer to install the project template
 cd v0.1-dev && composer install
 # Copy the default developer environment settings file out side of the repo.
@@ -102,6 +102,23 @@ if (!empty($output)) {
   $options['include'] = array($repo . '/../drush/commands', $repo . '/../drush/modules');
   $options['alias-path'] = $repo . '/../drush/aliases';
 }
+```
+
+### 6. Install documentation tools
+
+This project template can be used with [Doxygen](http://www.stack.nl/~dimitri/doxygen/) and [Sphinx](http://sphinx.readthedocs.org/) to create beautiful project documentation, such as is found on [Read The Docs](http://read-the-docs.readthedocs.org/).
+
+```
+# Install Doxygen, Sphinx and pip
+apt-get -y install python-sphinx python-pip doxygen
+# Install Breathe and Read the Docs plugins for Sphinx.
+pip install sphinx_rtd_theme breathe
+```
+
+You can generate Read the Docs styled documentation with the following command
+
+```
+./scripts/builddocs.sh
 ```
 
 * * *

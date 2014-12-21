@@ -1,0 +1,4 @@
+Example theme
+=============
+
+Example description
