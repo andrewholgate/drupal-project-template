@@ -1,11 +1,22 @@
 # Sensitive information #
 #########################
 # Ignore configuration files that may contain sensitive information.
+
+# Project directories.
 build
-docroot
-drush/modules/
-results/*
 vendor
+
+# Drush modules add by Composer.
+drush/modules/
+
+# Test results.
+results/*
+
+# Generated documentation output.
+docs/doxygen
+docs/html
+docs/latex
+docs/_build
 
 # Compiled source #
 ###################
