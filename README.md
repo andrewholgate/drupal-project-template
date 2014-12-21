@@ -29,7 +29,7 @@ It has the following set of functionality:
 ### 1. Install Composer
 [Composer](https://getcomposer.org/) is used to build projects and their dependencies.
 
-```
+```bash
 # Install Composer globally.
 curl -sS https://getcomposer.org/installer | php
 # Move Composer to globally accessible directory.
@@ -38,7 +38,7 @@ mv composer.phar /usr/local/bin/composer
 
 ### 2. Setup Project Structure
 
-```
+```bash
 # Create initial project release directory.
 mkdir -p project_name/release && cd project_name
 # Link initial directory as the current project root.
@@ -50,7 +50,7 @@ Rename *project_name* to the name of the project.
 
 ### 3. Install Project Template
 
-```
+```bash
 # Fetch only the latest commit for the Drupal 7 Project Template.
 git clone https://github.com/andrewholgate/drupal-project-template.git v0.1-dev
 # Use Composer to install the project template
@@ -64,25 +64,25 @@ composer update
 ### 4. Symlink Code Review Tools
 Symlink Drupal [Coder Sniffer](https://www.drupal.org/project/coder) coding standards sniffer.
 
-```
+```bash
 ln -s $(pwd)/vendor/drupal/coder/coder_sniffer/Drupal $(pwd)/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
 ```
 
 Symlink [DrupalPractice](https://www.drupal.org/project/drupalpractice) coding standards sniffer.
 
-```
+```bash
 ln -s $(pwd)/vendor/drupal/drupalpractice/DrupalPractice $(pwd)/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
 ```
 
 Symlink [DrupalStrict Sniffer](https://github.com/andrewholgate/drupalstrict) coding standards sniffer.
 
-```
+```bash
 ln -s $(pwd)/vendor/drupal/drupalstrict/DrupalStrict $(pwd)/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
 ```
 
 ### 5. Install and Configure Drush
 
-```
+```bash
 # Install latest, stable drush system wide.
 composer global require drush/drush:6.*
 # Symlink drush executable into common user directory.
@@ -91,7 +91,7 @@ ln -s $HOME/vendor/drush/drush/drush /usr/local/bin/drush
 
 Append the following code snippet into the `drushrc.php` file, found in `~/.drush/drushrc.php` in order to load custom drush commands, aliases and configurations from the project directory.
 
-```
+```php
 // Load a drushrc.php file from the 'drush' folder at the root
 // of the current git repository. Customize as desired.
 // (Script by grayside; @see: http://grayside.org/node/93)
@@ -108,7 +108,7 @@ if (!empty($output)) {
 
 This project template can be used with [Doxygen](http://www.stack.nl/~dimitri/doxygen/) and [Sphinx](http://sphinx.readthedocs.org/) to create beautiful project documentation, such as is found on [Read The Docs](http://read-the-docs.readthedocs.org/).
 
-```
+```bash
 # Install Doxygen, Sphinx and pip
 apt-get -y install python-sphinx python-pip doxygen
 # Install Breathe and Read the Docs plugins for Sphinx.
@@ -117,7 +117,7 @@ pip install sphinx_rtd_theme breathe
 
 You can generate Read the Docs styled documentation with the following command
 
-```
+```bash
 ./scripts/builddocs.sh
 ```
 
@@ -126,20 +126,20 @@ You can generate Read the Docs styled documentation with the following command
 ## Workflow Tools
 To update a project with the latest code from the `develop` branch, apply all database changes and revert all [Features](https://www.drupal.org/project/features), execute the following script:
 
-```
+```bash
 # Update and build the project with the latest changes (production safe)
 ./script/update.sh
 ```
 
 To retrieve the current git revision of an environment, use the following drush shell alias:
 
-```
+```bash
 drush @proj-production revision
 ```
 
 Drush commands and aliases should be used for all database and file sync tasks, such as:
 
-```
+```bash
 # Drop all tables in the current project.
 drush @proj-develop sql-drop
 # Synchronise the development database with production.
@@ -159,7 +159,7 @@ Note that synchronising a database to the development alias will also trigger ad
 ### Drush Aliases
 Read [Using drush to synchronize and deploy sites](https://www.drupal.org/node/670460) for more information on aliases
 
-```
+```bash
 # Customise drush aliases for the project.
 vim drush/aliases/aliases.drushrc.php
 ```
@@ -167,7 +167,7 @@ vim drush/aliases/aliases.drushrc.php
 ### Drush Commands
 A full Drupal [Registry Rebuild](https://www.drupal.org/project/registry_rebuild) can be executing using the following command:
 
-```
+```bash
 # Rebuild the Drupal registry.
 cd build
 drush rr
@@ -175,7 +175,7 @@ drush rr
 
 A full Features revert and database update can be executed using:
 
-```
+```bash
 cd build
 drush build
 ```
@@ -189,14 +189,14 @@ Note that this is one of the commands that is executed when `./scripts/update.sh
 ### Code Reviews
 An automated code review of the local code changes can be generated using:
 
-```
+```bash
 # Commandline output code review.
 ./scripts/review.sh
 ```
 
 A full, graphical code review report of all the custom code can be generated using:
 
-```
+```bash
 ./scripts/review.sh all
 ```
 
@@ -222,7 +222,7 @@ http://example.com/review/phpdcd.out
 ### Site and Security Audit
 An automated site and security audit of the project can be generated using:
 
-```
+```bash
 ./scripts/audit.sh
 ```
 
@@ -281,7 +281,7 @@ Drupal core, contributed modules, contributed themes, third party libraries and 
 
 As contributed Drupal 7 modules and themes do not contain their own `composer.json` files, they need to be added manually in the `"repositories": []` configuration of the main project `composer.json` file found in the project root.
 
-```
+```json
 {
   "require": {
     "drupal/views": "7.3.8"
