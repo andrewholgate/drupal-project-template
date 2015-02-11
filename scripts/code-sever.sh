@@ -1,9 +1,10 @@
 #!/bin/bash
 #
-# Sever the codebase into the build directory.
+# Sever the codebase into the docroot directory.
 #
+DOCROOT=docroot
 
-cp -R code/features build/sites/all/modules/
-mkdir build/sites/all/modules/custom
-cp -R code/modules/*  build/sites/all/modules/custom/
-cp -R code/themes build/sites/all/themes/custom/
+cp -R code/features $DOCROOT/sites/all/modules/
+mkdir $DOCROOT/sites/all/modules/custom
+cp -R code/modules/*  $DOCROOT/sites/all/modules/custom/
+cp -R code/themes $DOCROOT/sites/all/themes/custom/

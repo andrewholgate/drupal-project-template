@@ -13,7 +13,7 @@
   "keywords" : [
     "drupal"
   ],
-  "minimum-stability": "RC",
+  "minimum-stability": "stable",
   "authors": [
     {
       "name": "Example Name",
@@ -24,7 +24,7 @@
   "require": {
     "php": ">=5.3.3",
     "composer/installers": "~1.0",
-    "azt3k/non-destructive-archive-installer" : "dev-master",
+    "azt3k/non-destructive-archive-installer" : "0.2.11",
     "netresearch/composer-patches-plugin": "~1.0",
     "patches/drupal-patches": "*",
     "drupal/drupal": "7.34",
@@ -51,17 +51,19 @@
     "drupal/search_krumo": "7.1.5",
     "drupal/security_review": "7.1.2",
     "drupal/simplehtmldom": "7.2.1",
-    "drupal/coder": "8.2.0-beta1",
     "drupal/site_audit": "7.1.12",
     "drupal/drupalgeddon": "7.x-1.x-dev",
-    "drupal/drupalstrict": "@dev",
-    "drupal/drupalpractice": "8.1.0-beta1",
+    "phing/phing": "~2.0",
+    "squizlabs/php_codesniffer": "~2.0",
+    "drupal/coder": "~8.0",
+    "andrewholgate/drupalstrict": "~0.1",
     "pheromone/phpcs-security-audit": "dev-master",
     "halleck45/php-metrics": "0.0.6",
     "lucasdemarchi/codespell": "dev-master",
     "mayflower/php-codebrowser": "~1.1",
     "pdepend/pdepend" : "~2.0",
     "phpmd/phpmd" : "~2.1",
+    "phploc/phploc": "~2.0",
     "phpunit/phpunit": "~4.3",
     "sebastian/phpcpd": "~2.0",
     "sebastian/phpdcd": "~1.0"
@@ -81,7 +83,7 @@
           "azt3k/non-destructive-archive-installer" : "*"
         },
         "extra": {
-          "target-dir": "build",
+          "target-dir": "docroot",
           "omit-first-directory": "true",
           "always-install": "false"
         }
@@ -381,18 +383,6 @@
     {
       "type": "package",
       "package": {
-        "name": "drupal/drupalpractice",
-        "version": "8.1.0-beta1",
-        "type": "phpcs-plugin",
-        "dist": {
-          "url": "http://ftp.drupal.org/files/projects/drupalpractice-8.x-1.0-beta1.tar.gz",
-          "type": "tar"
-        }
-      }
-    },
-    {
-      "type": "package",
-      "package": {
         "name": "lucasdemarchi/codespell",
         "version": "master",
         "type": "phpcs-plugin",
@@ -415,19 +405,6 @@
           "reference": "master"
         }
       }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "drupal/drupalstrict",
-        "version": "master",
-        "type": "phpcs-plugin",
-        "source": {
-          "url": "https://github.com/andrewholgate/drupalstrict.git",
-          "type": "git",
-          "reference": "master"
-        }
-      }
     }
   ],
   "autoload": {
@@ -435,23 +412,23 @@
   },
   "scripts": {
     "pre-install-cmd": [
-      "mkdir build"
+      "mkdir docroot"
     ],
     "post-install-cmd": [
-      "cp -r copy/. build/",
-      "ln -s ../../../../code/features build/sites/all/modules/features",
-      "ln -s ../../../../code/themes build/sites/all/themes/custom"
+      "cp -r copy/. docroot/",
+      "ln -s ../../../../code/features docroot/sites/all/modules/features",
+      "ln -s ../../../../code/themes docroot/sites/all/themes/custom"
     ],
     "post-update-cmd": [
-      "chmod 777 build/sites/default/settings.php && cp -r copy/. build/",
-      "[ -f '../../settings.local.php' ] && cp ../../settings.local.php build/sites/default/"
+      "chmod 777 docroot/sites/default/settings.php && cp -r copy/. docroot/",
+      "[ -f '../../settings.local.php' ] && cp ../../settings.local.php docroot/sites/default/"
     ]
   },
   "extra": {
     "installer-paths": {
-      "build/sites/all/modules/contrib/{$name}/": ["type:drupal-module"],
-      "build/sites/all/themes/contrib/{$name}/": ["type:drupal-theme"],
-      "build/sites/all/libraries/{$name}/": ["type:drupal-library"],
+      "docroot/sites/all/modules/contrib/{$name}/": ["type:drupal-module"],
+      "docroot/sites/all/themes/contrib/{$name}/": ["type:drupal-theme"],
+      "docroot/sites/all/libraries/{$name}/": ["type:drupal-library"],
       "drush/modules/{$name}/": ["type:drupal-drush"]
     }
   }

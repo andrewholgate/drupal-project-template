@@ -26,7 +26,7 @@ drush $TARGET core-execute git pull origin develop
 drush $TARGET core-execute git reset --hard $COMMIT
 drush $TARGET core-execute composer update
 
-cd build
+cd docroot
 
 # Backup current database.
 drush $TARGET sql-dump --gzip --result-file="../../../databases/local_$DATETIME.sql"

@@ -6,11 +6,11 @@
  *
  * This settings file is intended to contain settings for the production environment
  * by overriding options set in settings.php
- * 
+ *
  * This file will be automatically included in the project if it is copied to
  * sites/default/settings.local.php, as settings.php contains the following
  * logic:
- * 
+ *
  * if (file_exists(dirname(__FILE__) . '/settings.local.php')) {
  *  require_once(dirname(__FILE__) .'/settings.local.php');
  * }

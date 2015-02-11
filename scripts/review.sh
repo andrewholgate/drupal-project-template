@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-# Initial project setup
+# Code review and audit.
 #
 
 echo
 if [ "$1" = "all" ]; then
   # Declare constants
-  DIR_OUTPUT=build/review
+  DIR_OUTPUT=docroot/review
   DIR_RESULTS=results
 
   # Create output directory if it does not exist.
@@ -24,7 +24,7 @@ if [ "$1" = "all" ]; then
   # Copy/Paste Detector
   ./vendor/bin/phpcpd code --names '*.php','*.module','*.info','*.install','*.test','*.profile','*.admin.inc' --min-lines 4 --min-tokens 10 --fuzzy --quiet --log-pmd $DIR_RESULTS/phpcpd.xml
   # Code Sniffer Features (Standards: Drupal, DrupalStandard & DrupalSecure)
-  ./vendor/bin/phpcs --standard=Drupal,DrupalPractice,DrupalStrict,vendor/drupal/drupalstrict/security_ruleset.xml --extensions=php,module,info,install,test,profile,admin.inc,js,css --report=checkstyle --report-file=$DIR_RESULTS/phpcs.xml -- code
+  ./vendor/bin/phpcs --standard=Drupal,DrupalStrict,vendor/drupal/drupalstrict/security_ruleset.xml --extensions=php,module,info,install,test,profile,drush.inc,admin.inc,js,css --report=checkstyle --report-file=$DIR_RESULTS/phpcs.xml -- code
   # PDepend
   ./vendor/bin/pdepend --jdepend-xml=$DIR_RESULTS/jdepend.xml --summary-xml=$DIR_RESULTS/jdepend-summary.xml --suffix=php,module,install,test,profile,admin.inc code
 
@@ -60,7 +60,7 @@ else
     echo "No code changes to review."
   else
    echo "Reviewing code changes.."
-    ./vendor/bin/phpcs --standard=Drupal,DrupalPractice,DrupalStrict,vendor/drupal/drupalstrict/security_ruleset.xml --extensions=php,module,info,install,test,profile,admin.inc,js,css -- $GIT_CHANGES
+    ./vendor/bin/phpcs --standard=Drupal,DrupalStrict,vendor/drupal/drupalstrict/security_ruleset.xml --extensions=php,module,info,install,test,profile,admin.inc,js,css -- $GIT_CHANGES
    echo "Code review completed."
   fi
 fi

@@ -5,7 +5,7 @@
 
 echo "Generating site audit.."
 echo
-cd build
+cd docroot
 
 [ -d "review" ] || mkdir review
 drush secrev 2>&1 | tee ./review/security_audit.out

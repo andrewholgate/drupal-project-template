@@ -3,7 +3,7 @@
 # Ignore configuration files that may contain sensitive information.
 
 # Project directories.
-build
+docroot
 vendor
 
 # Drush modules add by Composer.
@@ -11,6 +11,7 @@ drush/modules/
 
 # Test results.
 results/*
+build
 
 # Generated documentation output.
 docs/doxygen

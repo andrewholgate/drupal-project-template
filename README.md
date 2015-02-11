@@ -68,16 +68,10 @@ Symlink Drupal [Coder Sniffer](https://www.drupal.org/project/coder) coding stan
 ln -s $(pwd)/vendor/drupal/coder/coder_sniffer/Drupal $(pwd)/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
 ```
 
-Symlink [DrupalPractice](https://www.drupal.org/project/drupalpractice) coding standards sniffer.
-
-```bash
-ln -s $(pwd)/vendor/drupal/drupalpractice/DrupalPractice $(pwd)/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
-```
-
 Symlink [DrupalStrict Sniffer](https://github.com/andrewholgate/drupalstrict) coding standards sniffer.
 
 ```bash
-ln -s $(pwd)/vendor/drupal/drupalstrict/DrupalStrict $(pwd)/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
+ln -s $(pwd)/vendor/andrewholgate/drupalstrict/DrupalStrict $(pwd)/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
 ```
 
 ### 5. Install and Configure Drush
@@ -104,7 +98,7 @@ if (!empty($output)) {
 }
 ```
 
-### 6. Install documentation tools
+### 6. Install Documentation Tools
 
 This project template can be used with [Doxygen](http://www.stack.nl/~dimitri/doxygen/) and [Sphinx](http://sphinx.readthedocs.org/) to create beautiful project documentation, such as is found on [Read The Docs](http://read-the-docs.readthedocs.org/).
 
@@ -169,14 +163,14 @@ A full Drupal [Registry Rebuild](https://www.drupal.org/project/registry_rebuild
 
 ```bash
 # Rebuild the Drupal registry.
-cd build
+cd docroot
 drush rr
 ```
 
 A full Features revert and database update can be executed using:
 
 ```bash
-cd build
+cd docroot
 drush build
 ```
 
@@ -240,15 +234,15 @@ http://example.com/review/security_audit.out
 
 ## Project Directory Structure
 
-### build/
+### docroot/
 The project document root. This directory contains files which are generated during `composer install` and `composer install`. This directory is not version controlled but can be regenerated using Composer.
 
 ### code/
 Contains the project specific code for all custom Drupal Features and custom themes.
-The directories `features/` and `themes/` are symlinked into the appropriate directories inside of `build/` on `composer install`.
+The directories `features/` and `themes/` are symlinked into the appropriate directories inside of `docroot/` on `composer install`.
 
 ### copy/
-Files that will be copied into the `build/` directory on `composer update`
+Files that will be copied into the `docroot/` directory on `composer update`
 Files such as `.htaccess`, `settings.php` and `favicon.ico` should be placed here.
 
 ### docs/
@@ -305,7 +299,7 @@ As contributed Drupal 7 modules and themes do not contain their own `composer.js
 
 Read the [composer.json schema](https://getcomposer.org/doc/04-schema.md) for more information.
 
-### Build file structure
+### Build File Structure
 In order to make Composer create the correct Drupal project directory structure, the plugin [composer/installers](https://packagist.org/packages/composer/installers) is used. Read more on the [project homepage](https://github.com/composer/installers).
 
 ### Drupal Core as a Dependency
