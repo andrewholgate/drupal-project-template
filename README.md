@@ -11,6 +11,7 @@ It has the following set of functionality:
     * Effortless Drupal core and module upgrades.
     * Project level dependency management.
 * Organised project directory structure.
+* PHPUnit testing (for Drupal 7).
 * Automated code review, site audit and security review reports.
 * Easy updating of code and database changes.
 * Workflow and developer helper scripts.
@@ -19,7 +20,6 @@ It has the following set of functionality:
 
 ### Roadmap
 
-* PHPUnit testing.
 * Behat BDD testing.
 
 * * *

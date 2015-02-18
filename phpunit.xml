@@ -1,0 +1,18 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<phpunit colors="true" bootstrap="./tests/phpunit/bootstrap.php">
+  <testsuites>
+    <testsuite name="Example Suite">
+        <directory>./code</directory>
+    </testsuite>
+  </testsuites>
+  <!-- Filter for coverage reports. -->
+  <filter>
+    <whitelist>
+      <directory suffix=".php">./code</directory>
+    </whitelist>
+  </filter>
+  <logging>
+    <log type="coverage-html" target="./results/coverage"/>
+    <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+  </logging>
+</phpunit>
